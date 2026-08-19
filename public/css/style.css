@@ -1,246 +1,243 @@
-body{
+body {
   font-family: "Plus Jakarta Sans", sans-serif !important;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-.container{
-    flex: 1;
-}
-
-.navbar {
-    height: 5rem;
-    background-color: white;
-    position: relative;
-}
-
-.search-container {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.fa-compass{
-    color: #fe424d;
-    font-size: 2rem;
-}
-
-.nav-link{
-    color: #222222 !important;
-}
-
-.f-info-links a {
-    text-decoration: none;
-    color: #222222;
-}
-
-
-/* footer */
-.f-info-links a {
-    text-decoration: none;
-    color: #0c0c0c;
-}
-
-.f-info-links a:hover{
-    text-decoration: underline;
-}
-
-
-.f-info-socials,
-.f-info-brand {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.f-info-socials {
-    font-size: 1.2rem;
-    margin-right: 1rem;
-}
-
-.f-info-socials i{
-    font-size: 1.2rem;
-    margin-right: 1rem;
-}
-
-
-.f-info {
-    text-align: center;
-    height: 8rem;
-    background-color: #ebebeb;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content:center ;
-    align-items: space-evenly;
-}
-
-.f-info-links {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
-/* Cards */
-.listing-card {
-    border: none !important;
-    margin-bottom: 2rem;
-    width: 100%;
-}
-
-.card-img-top {
-    border-radius: 1rem !important;
-    width: 100% !important;
-    height: 250px !important;
-    object-fit: cover !important;
-}
-
-.card-body {
-    padding: 0 !important;
-}
-
-.card-text p {
-    font-weight: 400;
-}
-
-.listing-link{
-    text-decoration: none;
-}
-
-/* Card- Effect */ 
-.card-img-overlay{
-    opacity: 0;
-}
-
-.card-img-overlay:hover{
-    opacity: 0.2;
-    background-color: white;
-}
-
-
-/* new page */
-.add-btn{
-    background-color: #fe424d !important;
-    border: none !important;
-}
-
-/* edit-page */
-.edit-btn{
-    background-color: #fe424d !important;
-    border: none !important;
-}
-
-/* show Page */
-.show-img{
-    height: 30vh;
-}
-
-.btns{
-    display: flex;
-}
-
-.show-card{
-    padding-left: 0;
-    padding-right:0;
-}
-
-#map {
-    height: 300px;
-    width: 100%;
-    border-radius: 15px;
-    border: 2px solid #ddd;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    overflow: hidden;
-    margin-top: 20px;
+.container {
+  flex: 1;
 }
 
 /* -------------------------------------------
-   Category Filter Bar & Tax Toggle Layout
+   Navbar
 ------------------------------------------- */
+.navbar {
+  height: 5rem;
+  background-color: white;
+  position: relative;
+}
 
+.fa-compass {
+  color: #fe424d;
+  font-size: 2rem;
+}
+
+.nav-link {
+  color: #222222 !important;
+}
+
+/* -------------------------------------------
+   Footer
+------------------------------------------- */
+.f-info {
+  text-align: center;
+  height: 8rem;
+  background-color: #ebebeb;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: space-evenly;
+}
+
+.f-info-socials,
+.f-info-brand {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.f-info-socials i {
+  font-size: 1.2rem;
+  margin-right: 1rem;
+}
+
+.f-info-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.f-info-links a {
+  text-decoration: none;
+  color: #222222;
+}
+
+.f-info-links a:hover {
+  text-decoration: underline;
+}
+
+/* -------------------------------------------
+   Listing Cards Grid & Hover Effects
+------------------------------------------- */
+.listing-card {
+  border: none !important;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.card-img-top {
+  border-radius: 1rem !important;
+  width: 100% !important;
+  height: 250px !important;
+  object-fit: cover !important;
+}
+
+.card-body {
+  padding: 0 !important;
+}
+
+.card-text p {
+  font-weight: 400;
+}
+
+.listing-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.card-img-overlay {
+  opacity: 0;
+}
+
+.card-img-overlay:hover {
+  opacity: 0.2;
+  background-color: white;
+}
+
+/* -------------------------------------------
+   Buttons & Actions
+------------------------------------------- */
+.add-btn,
+.edit-btn {
+  background-color: #fe424d !important;
+  border: none !important;
+  color: white !important;
+}
+
+.btns {
+  display: flex;
+}
+
+/* -------------------------------------------
+   Show Page & Map
+------------------------------------------- */
+.show-card {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.show-img {
+  max-height: 22rem;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+#map {
+  width: 100%;
+  height: 350px;
+  border-radius: 15px;
+  border: 2px solid #ddd;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  margin-top: 15px;
+}
+
+/* -------------------------------------------
+   Category Filter Bar & Tax Toggle
+------------------------------------------- */
 #filters {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1.5rem;
   margin-top: 1rem;
   margin-bottom: 1.5rem;
   width: 100%;
 }
 
-/* Category links - standard text color, no underlines */
 #filters a {
   text-decoration: none !important;
   color: inherit !important;
 }
 
-/* Left side category icons container */
+/* Horizontal scrollable row for filters */
 .filter-container {
   display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: auto;
   align-items: center;
   gap: 2rem;
-  flex-wrap: wrap;
+  padding-bottom: 0.5rem;
+  scrollbar-width: none; /* Firefox */
+  -webkit-overflow-scrolling: touch;
+}
+
+.filter-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
 .filter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
+  color: #717171;
   opacity: 0.7;
+  flex: 0 0 auto;
   cursor: pointer;
+  transition: 0.2s ease-in-out;
 }
 
 .filter:hover {
   opacity: 1;
+  color: #000;
 }
 
 .filter p {
   font-size: 0.8rem;
+  margin-top: 0.25rem;
   margin-bottom: 0;
+  white-space: nowrap;
 }
 
-/* Right side tax toggle container (prevents full-width stretch) */
+.filter div i {
+  font-size: 1.2rem;
+}
+
+/* Tax Toggle Box */
 .tax-toggle {
   border: 1px solid #b0b0b0;
   border-radius: 1rem;
   height: 3.25rem;
   padding: 0 1rem;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   white-space: nowrap;
-  width: fit-content;
-  margin-left: auto;
+  flex-shrink: 0;
 }
 
-/* Hide tax info by default */
 .tax-info {
   display: none;
 }
 
-/* Responsive horizontal scroll for filter icons */
-#filters {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none; /* Firefox */
-}
-
-#filters::-webkit-scrollbar {
-  display: none; /* Chrome/Safari */
-}
-
-.filter {
-  flex: 0 0 auto;
-  margin-right: 1.5rem;
-}
-
-/* Responsive Map */
-#map {
-  width: 100%;
-  height: 350px;
-  border-radius: 12px;
-}
-
+/* -------------------------------------------
+   Mobile & Tablet Responsiveness
+------------------------------------------- */
 @media (max-width: 768px) {
+  #filters {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .tax-toggle {
+    align-self: flex-start;
+  }
+
   #map {
     height: 250px;
   }
