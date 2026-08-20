@@ -1,4 +1,3 @@
-
 require("dotenv").config();
 
 const express = require("express");
@@ -19,19 +18,18 @@ const listingRouter = require("./routes/listings.js");
 const reviewRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
 
-console.log("DB URL:", process.env.ATLASDB_URL);
 const dbUrl = process.env.ATLASDB_URL;
 
 main()
-    .then(() => {
-        console.log("Connected to DB successfully");
-    })
-    .catch((err) => {
-        console.error("Database connection error:", err);
-    });
+  .then(() => {
+    console.log("Connected to DB successfully");
+  })
+  .catch((err) => {
+    console.error("Database connection error:", err);
+  });
 
 async function main() {
-    await mongoose.connect(dbUrl);
+  await mongoose.connect(dbUrl);
 }
 
 app.set("view engine", "ejs");
@@ -42,30 +40,28 @@ app.engine("ejs", ejsMate);
 app.use(express.static(path.join(__dirname, "/public")));
 
 const store = MongoStore.create({
-    mongoUrl: dbUrl,
-    crypto: {
-        secret: process.env.SECRET,
-    },
-    touchAfter: 24 * 3600,
+  mongoUrl: dbUrl,
+  crypto: {
+    secret: process.env.SECRET,
+  },
+  touchAfter: 24 * 3600,
 });
 
-store.on("error", () => {
-    console.log("ERROR in MONGO SESSION STORE", err);
+store.on("error", (err) => {
+  console.log("ERROR in MONGO SESSION STORE", err);
 });
 
 const sessionOptions = {
-    store,
-    secret:process.env.SECRET,
-    resave: false,
-    saveUninitialized: true,
-    cookie: {
-        expires: Date.now() + 7 * 24 * 60 * 60 * 1000, // Fixed: '+' instead of '*'
-        maxAge: 7 * 24 * 60 * 60 * 1000,
-        httpOnly: true,
-    },
+  store,
+  secret: process.env.SECRET,
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
+    maxAge: 7 * 24 * 60 * 60 * 1000,
+    httpOnly: true,
+  },
 };
-
-
 
 app.use(session(sessionOptions));
 app.use(flash());
@@ -78,11 +74,16 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use((req, res, next) => {
-    res.locals.success = req.flash("success");
-    res.locals.error = req.flash("error");
-    res.locals.currUser = req.user;
-    res.locals.search = req.query.search || "";
-    next();
+  res.locals.success = req.flash("success");
+  res.locals.error = req.flash("error");
+  res.locals.currUser = req.user;
+  res.locals.search = req.query.search || "";
+  next();
+});
+
+// Direct root route to listings
+app.get("/", (req, res) => {
+  res.redirect("/listings");
 });
 
 // Routes
@@ -92,15 +93,15 @@ app.use("/", userRouter);
 
 // 404 Handler
 app.use((req, res, next) => {
-    next(new ExpressError(404, "Page Not Found!"));
+  next(new ExpressError(404, "Page Not Found!"));
 });
 
 // Error Handling Middleware
 app.use((err, req, res, next) => {
-    let { statusCode = 500, message = "Something went wrong!" } = err;
-    res.status(statusCode).render("error.ejs", { message });
+  let { statusCode = 500, message = "Something went wrong!" } = err;
+  res.status(statusCode).render("error.ejs", { message });
 });
 
 app.listen(8080, () => {
-    console.log("Server is listening on port 8080");
+  console.log("Server is listening on port 8080");
 });
