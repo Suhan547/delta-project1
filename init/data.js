@@ -347,6 +347,8 @@ const sampleListings = [
     location: "Costa Rica",
     country: "Costa Rica",
   },
+
+  
 ];
 
 module.exports = { data: sampleListings };

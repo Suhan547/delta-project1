@@ -242,3 +242,52 @@ body {
     height: 250px;
   }
 }
+
+/* -------------------------------------------
+   Dark Mode Custom Adjustments
+------------------------------------------- */
+[data-bs-theme="dark"] body {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+[data-bs-theme="dark"] .navbar {
+  background-color: #1a1a1a !important;
+  border-bottom: 1px solid #2d2d2d !important;
+}
+
+[data-bs-theme="dark"] .nav-link {
+  color: #e0e0e0 !important;
+}
+
+[data-bs-theme="dark"] .f-info {
+  background-color: #1a1a1a;
+  border-top: 1px solid #2d2d2d;
+}
+
+[data-bs-theme="dark"] .f-info-links a {
+  color: #b0b0b0;
+}
+
+[data-bs-theme="dark"] .tax-toggle {
+  border-color: #444;
+  background-color: #1e1e1e;
+}
+
+[data-bs-theme="dark"] .card {
+  background-color: transparent;
+}
+
+/* Filter icons visibility in Dark Mode */
+[data-bs-theme="dark"] .filter {
+  color: #a0a0a0;
+}
+
+[data-bs-theme="dark"] .filter:hover {
+  color: #ffffff;
+}
+
+/* Map border adjustment in Dark Mode */
+[data-bs-theme="dark"] #map {
+  border-color: #333;
+}
