@@ -8,7 +8,7 @@ const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 const ExpressError = require("./utils/ExpressError.js");
 const session = require("express-session");
-const { MongoStore } = require("connect-mongo");
+const MongoStore = require("connect-mongo");
 const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
@@ -37,7 +37,7 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.engine("ejs", ejsMate);
-app.use(express.static(path.join(__dirname, "/public")));
+app.use(express.static(path.join(__dirname, "public")));
 
 const store = MongoStore.create({
   mongoUrl: dbUrl,
@@ -92,7 +92,7 @@ app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter);
 
 // 404 Handler
-app.use((req, res, next) => {
+app.all("*", (req, res, next) => {
   next(new ExpressError(404, "Page Not Found!"));
 });
 
@@ -102,6 +102,7 @@ app.use((err, req, res, next) => {
   res.status(statusCode).render("error.ejs", { message });
 });
 
-app.listen(8080, () => {
-  console.log("Server is listening on port 8080");
+const port = process.env.PORT || 8080;
+app.listen(port, () => {
+  console.log(`Server is listening on port ${port}`);
 });
